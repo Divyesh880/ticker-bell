@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ticker Bell Kft. — Website Wireframe (Doc-TB-201)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #2a2825;
+    --ink-mid: #5c5a56;
+    --ink-light: #8c8a85;
+    --ink-faint: #b8b5af;
+    --paper: #f5f2ed;
+    --paper-dark: #ede9e2;
+    --paper-mid: #e4e0d8;
+    --paper-card: #faf8f4;
+    --stroke: #b0aca4;
+    --stroke-light: #ccc9c2;
+    --fill-solid: #6e6b65;
+    --fill-medium: #9e9b94;
+    --fill-light: #d0cdc6;
+    --fill-ghost: #e8e4dc;
+    --hatch-color: #c4c0b8;
+    --red-accent: #9b3a2a;
+    --font-mono: 'Space Mono', 'Courier New', monospace;
+    --font-courier: 'Courier Prime', 'Courier New', monospace;
+    --radius-sm: 3px;
+    --radius-md: 5px;
+  }
+
+  body {
+    background: #ddd9d0;
+    font-family: var(--font-mono);
+    color: var(--ink);
+    padding: 40px 20px;
+    line-height: 1.5;
+  }
+
+  /* ── SHEET ── */
+  .sheet {
+    background: var(--paper);
+    max-width: 900px;
+    margin: 0 auto 60px;
+    padding: 0;
+    box-shadow: 4px 4px 0 #b5b1a8, 8px 8px 0 #c9c5bc;
+    border: 1px solid var(--stroke);
+    position: relative;
+  }
+
+  /* ── DOCUMENT HEADER ── */
+  .doc-header {
+    background: var(--paper-dark);
+    border-bottom: 1px solid var(--stroke);
+    padding: 16px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .doc-meta { font-size: 10px; color: var(--ink-mid); font-family: var(--font-courier); line-height: 1.8; }
+  .doc-logo {
+    width: 36px; height: 36px;
+    border: 1.5px solid var(--stroke);
+    display: flex; align-items: center; justify-content: center;
+    background: var(--fill-solid);
+  }
+  .doc-logo span { color: var(--paper); font-size: 18px; font-weight: 700; }
+
+  /* ── PAGE LABEL ── */
+  .page-label {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--font-courier);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .page-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.25);
+  }
+
+  /* ── SECTION WRAPPER ── */
+  .page-content { padding: 0 28px 28px; }
+
+  /* ── SECTION DIVIDER ── */
+  .section-divider {
+    margin: 24px -28px 20px;
+    padding: 6px 28px;
+    background: var(--paper-dark);
+    border-top: 1px solid var(--stroke-light);
+    border-bottom: 1px solid var(--stroke-light);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-divider .s-label {
+    font-size: 9px;
+    font-family: var(--font-courier);
+    font-style: italic;
+    color: var(--ink-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+  .section-divider .s-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink-mid);
+    font-family: var(--font-courier);
+  }
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--stroke-light);
+    border-top: 1px dashed var(--fill-light);
+  }
+
+  /* ── ANNOTATION ── */
+  .annotation {
+    font-size: 9px;
+    font-family: var(--font-courier);
+    font-style: italic;
+    color: var(--ink-light);
+    text-align: center;
+    margin-top: 8px;
+    padding: 4px 0;
+  }
+
+  /* ── BROWSER CHROME ── */
+  .browser-chrome {
+    background: var(--paper-dark);
+    border: 1px solid var(--stroke);
+    border-radius: 6px 6px 0 0;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+  .browser-dot { width: 10px; height: 10px; border-radius: 50%; border: 1px solid var(--stroke); background: var(--fill-light); }
+  .browser-url {
+    flex: 1; height: 20px; border-radius: 10px;
+    background: var(--paper-card); border: 1px solid var(--stroke);
+    display: flex; align-items: center; padding: 0 10px;
+  }
+  .browser-url span { font-size: 9px; color: var(--ink-light); font-family: var(--font-courier); }
+  .browser-btn { width: 24px; height: 20px; border: 1px solid var(--stroke); border-radius: var(--radius-sm); background: var(--fill-ghost); }
+
+  /* ── NAV BAR ── */
+  .navbar {
+    background: var(--paper-card);
+    border: 1px solid var(--stroke);
+    border-top: none;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    height: 44px;
+    gap: 0;
+  }
+  .nav-brand {
+    display: flex; align-items: center; gap: 8px;
+    margin-right: auto;
+  }
+  .nav-logo-box {
+    width: 28px; height: 28px; background: var(--fill-solid);
+    border: 1px solid var(--stroke);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .nav-logo-box span { font-size: 12px; font-weight: 700; color: var(--paper); }
+  .nav-brand-name { font-size: 12px; font-weight: 700; color: var(--ink); font-family: var(--font-courier); }
+  .nav-links { display: flex; gap: 0; }
+  .nav-link {
+    font-size: 10px; color: var(--ink-light); font-family: var(--font-courier);
+    padding: 0 14px; height: 44px;
+    display: flex; align-items: center;
+    border-right: 1px solid var(--stroke-light);
+    white-space: nowrap;
+  }
+  .nav-link.active {
+    color: var(--ink);
+    font-weight: 700;
+    position: relative;
+  }
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 14px; right: 14px;
+    height: 2px;
+    background: var(--ink-mid);
+  }
+  .nav-cta {
+    margin-left: 14px;
+    background: var(--fill-solid);
+    color: var(--paper);
+    font-size: 10px;
+    font-family: var(--font-courier);
+    padding: 6px 14px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  /* ── HATCH FILL (image placeholder) ── */
+  .img-placeholder {
+    background-color: var(--fill-ghost);
+    background-image: repeating-linear-gradient(
+      45deg,
+      var(--hatch-color) 0,
+      var(--hatch-color) 0.5px,
+      transparent 0,
+      transparent 50%
+    );
+    background-size: 8px 8px;
+    border: 1px solid var(--stroke);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .img-placeholder span {
+    font-size: 9px;
+    color: var(--ink-light);
+    font-family: var(--font-courier);
+    font-style: italic;
+    background: rgba(245,242,237,0.85);
+    padding: 3px 8px;
+  }
+
+  /* ── PLACEHOLDER BARS ── */
+  .ph { border-radius: var(--radius-sm); display: block; }
+  .ph-dark  { background: var(--fill-medium); }
+  .ph-mid   { background: var(--fill-light); }
+  .ph-light { background: var(--fill-ghost); }
+  .ph-faint { background: var(--paper-mid); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    height: 200px;
+    margin: 0 -28px;
+    overflow: hidden;
+  }
+  .hero .img-placeholder {
+    position: absolute; inset: 0;
+    border: none; border-bottom: 1px solid var(--stroke);
+  }
+  .hero-card {
+    position: absolute;
+    top: 24px; left: 60px; right: 60px;
+    background: rgba(245,242,237,0.95);
+    border: 1px solid var(--stroke);
+    padding: 20px 24px;
+  }
+  .hero-tagline {
+    width: 240px; height: 14px;
+    background: var(--fill-medium);
+    border-radius: var(--radius-sm);
+    margin-bottom: 12px;
+  }
+  .hero-text-lines { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+  .cta-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--fill-solid);
+    color: var(--paper);
+    font-size: 10px;
+    font-family: var(--font-courier);
+    padding: 7px 16px;
+    border: 1px solid var(--fill-solid);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink-mid);
+    font-size: 10px;
+    font-family: var(--font-courier);
+    padding: 7px 16px;
+    border: 1px solid var(--stroke);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  /* ── GRID ── */
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .grid-2-3 { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--paper-card);
+    border: 1px solid var(--stroke);
+    padding: 14px 16px;
+  }
+  .card.dashed { border-style: dashed; }
+  .card.shaded { background: var(--fill-ghost); }
+
+  /* ── BOOK CARD ── */
+  .book-card {
+    background: var(--paper-card);
+    border: 1px solid var(--stroke);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* ── BADGE ── */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    background: var(--fill-light);
+    color: var(--ink-mid);
+    font-size: 9px;
+    font-family: var(--font-courier);
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  /* ── TABS ── */
+  .tab-bar {
+    display: flex;
+    border: 1px solid var(--stroke);
+    background: var(--fill-ghost);
+  }
+  .tab {
+    flex: 1;
+    padding: 9px 8px;
+    font-size: 10px;
+    font-family: var(--font-courier);
+    color: var(--ink-light);
+    text-align: center;
+    border-right: 1px solid var(--stroke);
+    cursor: pointer;
+  }
+  .tab:last-child { border-right: none; }
+  .tab.active {
+    background: var(--fill-solid);
+    color: var(--paper);
+    font-weight: 700;
+  }
+
+  /* ── ENROLL SIDEBAR ── */
+  .sidebar-card {
+    background: var(--fill-ghost);
+    border: 1.5px solid var(--stroke);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* ── CROSS-LINK STRIP ── */
+  .crosslink-strip {
+    margin: 0 ;
+    background: var(--paper-dark);
+    border-top: 1px solid var(--stroke-light);
+    border-bottom: 1px solid var(--stroke-light);
+    padding: 16px 28px;
+  }
+  .crosslink-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 10px; }
+  .crosslink-item {
+    background: var(--paper-card);
+    border: 1px solid var(--stroke);
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .crosslink-icon {
+    width: 18px; height: 18px; background: var(--fill-light);
+    border: 1px solid var(--stroke);
+    flex-shrink: 0;
+  }
+
+  /* ── FOOTER ── */
+  .wf-footer {
+    background: var(--paper-mid);
+    border-top: 1px solid var(--stroke);
+    padding: 18px 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+  .footer-col { display: flex; flex-direction: column; gap: 6px; }
+
+  /* ── PAGE BREAK ── */
+  .page-break {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 28px;
+  }
+  .page-break::before, .page-break::after {
+    content: '';
+    flex: 1;
+    border-top: 1px dashed var(--stroke);
+  }
+  .page-break span {
+    font-size: 9px;
+    font-family: var(--font-courier);
+    color: var(--ink-light);
+    font-style: italic;
+    white-space: nowrap;
+  }
+
+  /* ── LEGEND ── */
+  .legend {
+    border-top: 1px solid var(--stroke-light);
+    padding: 20px 28px;
+    background: var(--paper-dark);
+  }
+  .legend-title {
+    font-size: 10px;
+    font-weight: 700;
+    font-family: var(--font-courier);
+    color: var(--ink-mid);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .legend-title::after { content: ''; flex:1; height:1px; background: var(--stroke-light); }
+  .legend-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 24px; }
+  .legend-item { display: flex; align-items: center; gap: 10px; }
+  .legend-swatch {
+    width: 22px; height: 14px; flex-shrink: 0;
+    border: 1px solid var(--stroke);
+  }
+  .legend-item span { font-size: 9px; font-family: var(--font-courier); color: var(--ink-mid); }
+  .legend-swatch.hatch {
+    background-color: var(--fill-ghost);
+    background-image: repeating-linear-gradient(45deg, var(--hatch-color) 0, var(--hatch-color) 0.5px, transparent 0, transparent 50%);
+    background-size: 6px 6px;
+  }
+  .legend-swatch.solid { background: var(--fill-solid); border-color: var(--fill-solid); }
+  .legend-swatch.outline { background: transparent; border: 1.5px solid var(--fill-solid); }
+  .legend-swatch.dashed { background: transparent; border-style: dashed; }
+  .legend-swatch.light-fill { background: var(--fill-ghost); }
+  .legend-swatch.mid-fill { background: var(--fill-light); }
+
+  /* ── LINKEDIN AVATAR CIRCLE ── */
+  .li-avatar {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: var(--fill-light);
+    border: 1px solid var(--stroke);
+    flex-shrink: 0;
+  }
+
+  /* ── SCROLLING BREADCRUMB ── */
+  .breadcrumb {
+    font-size: 9px;
+    font-family: var(--font-courier);
+    color: var(--ink-light);
+    padding: 8px 0 0;
+    letter-spacing: 0.06em;
+  }
+
+  /* ── PRINT STYLES ── */
+  @media print {
+    body { background: white; padding: 0; }
+    .sheet { box-shadow: none; margin: 0; max-width: 100%; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 680px) {
+    .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
+    .grid-2, .grid-2-3 { grid-template-columns: 1fr; }
+    .cta-row { flex-direction: column; }
+    .nav-links { display: none; }
+    .legend-grid { grid-template-columns: 1fr 1fr; }
+    .crosslink-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <!-- ══════════════════════════════════════════
+       DOCUMENT HEADER
+  ══════════════════════════════════════════ -->
+  <!-- <div class="doc-header">
+    <div class="doc-meta">
+      <div><strong>Title:</strong> TB Main Website Redesign — Wireframe</div>
+      <div><strong>Pages shown:</strong> Home Page &nbsp;/&nbsp; Courses Section</div>
+      <div><strong>Authors:</strong> Mehrzad Abdi / Eva Kiss</div>
+    </div>
+    <div class="doc-logo"><span>TB</span></div>
+  </div> -->
+
+
+  <!-- ══════════════════════════════════════════
+       PAGE 1 — HOME PAGE
+  ══════════════════════════════════════════ -->
+  <div class="page-label">Page 1 — Home Page</div>
+
+  <div class="page-content">
+
+    <!-- Browser chrome -->
+    <div class="browser-chrome">
+      <div class="browser-dot"></div>
+      <div class="browser-dot"></div>
+      <div class="browser-dot"></div>
+      <div class="browser-url"><span>tickerbell.biz</span></div>
+      <div class="browser-btn"></div>
+      <div class="browser-btn"></div>
+    </div>
+
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="nav-brand">
+        <div class="nav-logo-box"><span>TB</span></div>
+        <div class="nav-brand-name">Ticker Bell Kft.</div>
+      </div>
+      <div class="nav-links">
+        <div class="nav-link active">Home</div>
+        <div class="nav-link">Research</div>
+        <div class="nav-link">Books</div>
+        <div class="nav-link">Mentorship</div>
+        <div class="nav-link">Courses</div>
+        <div class="nav-link">Press</div>
+        <div class="nav-link">About</div>
+      </div>
+      <button class="nav-cta">Contact</button>
+    </div>
+
+    <!-- ── HERO ── -->
+
+    
+
+    <!-- ── RESEARCH HIGHLIGHTS ── -->
+    <div class="section-divider">
+      <span class="s-label">Section 2</span>
+      <span class="s-title">Research Highlights</span>
+    </div>
+
+    <div class="grid-3">
+      <!-- Research card × 3 -->
+      <div class="card">
+        <span class="ph ph-dark" style="width:70%;height:10px;margin-bottom:10px;"></span>
+        <span class="ph ph-mid" style="width:100%;height:7px;margin-bottom:5px;"></span>
+        <span class="ph ph-light" style="width:85%;height:7px;margin-bottom:5px;"></span>
+        <span class="ph ph-light" style="width:70%;height:7px;margin-bottom:12px;"></span>
+        <button class="btn-secondary" style="font-size:9px;padding:5px 12px;">Read more →</button>
+      </div>
+      <div class="card">
+        <span class="ph ph-dark" style="width:60%;height:10px;margin-bottom:10px;"></span>
+        <span class="ph ph-mid" style="width:100%;height:7px;margin-bottom:5px;"></span>
+        <span class="ph ph-light" style="width:90%;height:7px;margin-bottom:5px;"></span>
+        <span class="ph ph-light" style="width:65%;height:7px;margin-bottom:12px;"></span>
+        <button class="btn-secondary" style="font-size:9px;padding:5px 12px;">Read more →</button>
+      </div>
+      <div class="card">
+        <span class="ph ph-dark" style="width:80%;height:10px;margin-bottom:10px;"></span>
+        <span class="ph ph-mid" style="width:100%;height:7px;margin-bottom:5px;"></span>
+        <span class="ph ph-light" style="width:75%;height:7px;margin-bottom:5px;"></span>
+        <span class="ph ph-light" style="width:80%;height:7px;margin-bottom:12px;"></span>
+        <button class="btn-secondary" style="font-size:9px;padding:5px 12px;">Read more →</button>
+      </div>
+    </div>
+    <p class="annotation">Research area cards (×3) — informative + authoritative, no commercial elements</p>
+
+
+    <!-- ── FEATURED BOOKS ── -->
+    <div class="section-divider">
+      <span class="s-label">Section 3</span>
+      <span class="s-title">Featured Books</span>
+    </div>
+
+    <div class="grid-4">
+      <!-- Book card × 4 -->
+      <div class="book-card">
+        <div class="img-placeholder" style="height:90px;"><span>[ cover ]</span></div>
+        <span class="ph ph-mid" style="width:80%;height:8px;"></span>
+        <span class="ph ph-light" style="width:60%;height:7px;"></span>
+        <button class="btn-primary" style="font-size:9px;padding:6px 10px;width:100%;margin-top:4px;">Buy Now</button>
+      </div>
+      <div class="book-card">
+        <div class="img-placeholder" style="height:90px;"><span>[ cover ]</span></div>
+        <span class="ph ph-mid" style="width:90%;height:8px;"></span>
+        <span class="ph ph-light" style="width:50%;height:7px;"></span>
+        <button class="btn-primary" style="font-size:9px;padding:6px 10px;width:100%;margin-top:4px;">Buy Now</button>
+      </div>
+      <div class="book-card">
+        <div class="img-placeholder" style="height:90px;"><span>[ cover ]</span></div>
+        <span class="ph ph-mid" style="width:75%;height:8px;"></span>
+        <span class="ph ph-light" style="width:65%;height:7px;"></span>
+        <button class="btn-secondary" style="font-size:9px;padding:6px 10px;width:100%;margin-top:4px;">Early Bird →</button>
+      </div>
+      <div class="book-card">
+        <div class="img-placeholder" style="height:90px;"><span>[ cover ]</span></div>
+        <span class="ph ph-mid" style="width:85%;height:8px;"></span>
+        <span class="ph ph-light" style="width:55%;height:7px;"></span>
+        <button class="btn-secondary" style="font-size:9px;padding:6px 10px;width:100%;margin-top:4px;">Coming Soon</button>
+      </div>
+    </div>
+    <p class="annotation">Book thumbnails + title + purchase / early bird CTA (×4) — direct purchase links + under-publication awareness</p>
+
+
+    <!-- ── MENTORSHIP + COURSES OVERVIEW ── -->
+    <div class="section-divider">
+      <span class="s-label">Section 4</span>
+      <span class="s-title">Mentorship &amp; Courses Overview</span>
+    </div>
+
+    <div class="grid-2">
+      <div class="card shaded">
+        <span class="ph ph-dark" style="width:55%;height:11px;margin-bottom:10px;"></span>
+        <span class="ph ph-mid" style="width:100%;height:7px;margin-bottom:5px;"></span>
+        <span class="ph ph-light" style="width:90%;height:7px;margin-bottom:5px;"></span>
+        <span class="ph ph-light" style="width:80%;height:7px;margin-bottom:5px;"></span>
+        <span class="ph ph-light" style="width:70%;height:7px;margin-bottom:14px;"></span>
+        <button class="btn-primary" style="font-size:10px;">Book a Demo →</button>
+      </div>
+      <div class="card shaded">
+        <span class="ph ph-dark" style="width:45%;height:11px;margin-bottom:10px;"></span>
+        <span class="ph ph-mid" style="width:100%;height:7px;margin-bottom:5px;"></span>
+        <span class="ph ph-light" style="width:85%;height:7px;margin-bottom:5px;"></span>
+        <span class="ph ph-light" style="width:75%;height:7px;margin-bottom:5px;"></span>
+        <span class="ph ph-light" style="width:65%;height:7px;margin-bottom:14px;"></span>
+        <button class="btn-secondary" style="font-size:10px;">View Courses →</button>
+      </div>
+    </div>
+    <p class="annotation">Two-column overview — Mentorship (left) / Courses (right) — both high-visibility with direct CTAs</p>
+
+
+    <!-- ── LINKEDIN FEED ── -->
+    <div class="section-divider">
+      <span class="s-label">Section 5</span>
+      <span class="s-title">Latest Updates (LinkedIn Integration)</span>
+    </div>
+
+    <div class="grid-3">
+      <!-- LinkedIn post × 3 -->
+      <div class="card dashed">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+          <div class="li-avatar"></div>
+          <div>
+            <span class="ph ph-mid" style="width:80px;height:8px;display:block;margin-bottom:4px;"></span>
+            <span class="ph ph-light" style="width:50px;height:6px;display:block;"></span>
+          </div>
+        </div>
+        <span class="ph ph-light" style="width:100%;height:6px;margin-bottom:4px;display:block;"></span>
+        <span class="ph ph-light" style="width:90%;height:6px;margin-bottom:4px;display:block;"></span>
+        <span class="ph ph-faint" style="width:70%;height:6px;display:block;"></span>
+      </div>
+      <div class="card dashed">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+          <div class="li-avatar"></div>
+          <div>
+            <span class="ph ph-mid" style="width:80px;height:8px;display:block;margin-bottom:4px;"></span>
+            <span class="ph ph-light" style="width:50px;height:6px;display:block;"></span>
+          </div>
+        </div>
+        <span class="ph ph-light" style="width:100%;height:6px;margin-bottom:4px;display:block;"></span>
+        <span class="ph ph-light" style="width:85%;height:6px;margin-bottom:4px;display:block;"></span>
+        <span class="ph ph-faint" style="width:60%;height:6px;display:block;"></span>
+      </div>
+      <div class="card dashed">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+          <div class="li-avatar"></div>
+          <div>
+            <span class="ph ph-mid" style="width:80px;height:8px;display:block;margin-bottom:4px;"></span>
+            <span class="ph ph-light" style="width:50px;height:6px;display:block;"></span>
+          </div>
+        </div>
+        <span class="ph ph-light" style="width:100%;height:6px;margin-bottom:4px;display:block;"></span>
+        <span class="ph ph-light" style="width:80%;height:6px;margin-bottom:4px;display:block;"></span>
+        <span class="ph ph-faint" style="width:75%;height:6px;display:block;"></span>
+      </div>
+    </div>
+    <p class="annotation">LinkedIn post cards (×3) — auto-pulled, dashed border = dynamic/embedded content, no manual blog needed</p>
+
+  </div><!-- end page-content -->
+
+  <!-- Footer -->
+  <!-- Footer -->
+    <div class="legend">
+        <div class="legend-grid">
+            <div class="legend-item">
+                <span><strong>Address:</strong> Budapest, Népfürdő u. 22-B, 15 em, 1138</span>
+            </div>
+            <div class="legend-item">
+                <span></span>
+            </div>
+            <div class="legend-item">
+                <span></span>
+            </div>
+
+            <div class="legend-item">
+                <span><strong>Email:</strong> info@tickerbell.biz</span>
+            </div>
+            <div class="legend-item">
+                <span></span>
+            </div>
+            <div class="legend-item">
+                <span></span><span><img src="fb.png" alt="Facebook" width="13px"></span><span><img src="in.png" alt="LinkedIn" width="13px"></span><span><img src="x.png" alt="X" width="13px"></span>
+            </div>
+
+            <div class="legend-item">
+                <span><strong>Phone:</strong> 06 20 505 1054</span>
+            </div>
+            <div class="legend-item">
+                <span></span>
+            </div>
+            <div class="legend-item">
+                <span></span>
+            </div>
+        </div>
+        <div style="margin-top:14px;padding-top:10px;border-top:1px dashed var(--stroke-light);text-align: center;">
+            <span style="font-size:9px;font-family:var(--font-courier);font-style:italic;color:var(--ink-light);">
+                Privecy Policy - Terms & Conditions
+            </span>
+        </div>
+    </div>
+
+  <!-- Page break -->
+  <div class="page-break"><span>— end of home page —</span></div>
+
+
+  <!-- ══════════════════════════════════════════
+       PAGE 2 — COURSES SECTION
+  ══════════════════════════════════════════ -->
+  <div class="page-label">Page 2 — Courses Section</div>
+
+  <div class="page-content">
+
+    <!-- Browser chrome -->
+    <div class="browser-chrome">
+      <div class="browser-dot"></div>
+      <div class="browser-dot"></div>
+      <div class="browser-dot"></div>
+      <div class="browser-url"><span>tickerbell.biz/courses</span></div>
+      <div class="browser-btn"></div>
+      <div class="browser-btn"></div>
+    </div>
+
+    <!-- Navbar (courses active) -->
+    <div class="navbar">
+      <div class="nav-brand">
+        <div class="nav-logo-box"><span>TB</span></div>
+        <div class="nav-brand-name">Ticker Bell Kft.</div>
+      </div>
+      <div class="nav-links">
+        <div class="nav-link">Home</div>
+        <div class="nav-link">Research</div>
+        <div class="nav-link">Books</div>
+        <div class="nav-link">Mentorship</div>
+        <div class="nav-link active">Courses</div>
+        <div class="nav-link">Press</div>
+        <div class="nav-link">About</div>
+      </div>
+      <button class="nav-cta">Contact</button>
+    </div>
+
+    <!-- Page hero / breadcrumb -->
+    <!-- <div class="card shaded" style="margin-top:16px;padding:16px 20px;">
+      <div class="breadcrumb">Home › Courses</div>
+      <span class="ph ph-dark" style="width:180px;height:18px;margin:8px 0 6px;display:block;"></span>
+      <span class="ph ph-mid" style="width:320px;height:8px;display:block;"></span>
+    </div> -->
+
+    <!-- ── COURSES OVERVIEW TEXT ── -->
+    <div class="section-divider">
+      <span class="s-label">Overview</span>
+      <span class="s-title">Teaching Approach Introduction</span>
+    </div>
+
+    <div style="padding:4px 0 4px;">
+      <span class="ph ph-mid" style="width:90%;height:8px;display:block;margin:0 auto 7px;"></span>
+      <span class="ph ph-light" style="width:80%;height:7px;display:block;margin:0 auto 7px;"></span>
+      <span class="ph ph-light" style="width:70%;height:7px;display:block;margin:0 auto;"></span>
+    </div>
+    <p class="annotation">General intro text — teaching approach, target audiences, pedagogy summary</p>
+
+
+    <!-- ── COURSE CATEGORIES ── -->
+    <div class="section-divider">
+      <span class="s-label">Section A</span>
+      <span class="s-title">Course Categories — Filter Tabs</span>
+    </div>
+
+    <div class="tab-bar">
+      <div class="tab active">Short Courses</div>
+      <div class="tab">Workshops</div>
+      <div class="tab">Academic Courses</div>
+    </div>
+    <p class="annotation">Tab filter — Short Courses active by default · click to reveal Workshops or Academic Courses</p>
+
+
+    <!-- ── SHORT COURSE CARDS ── -->
+    <div class="section-divider" style="margin-top:14px;">
+      <span class="s-label">Short Courses</span>
+      <span class="s-title">2-hour &amp; 4-hour Courses</span>
+    </div>
+
+    <div class="grid-2">
+      <!-- 2h card -->
+      <div class="card" style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display: flex;flex-direction: row;justify-content: space-between;">
+            <div style="display: flex;flex-direction: row;gap: 10px;align-items: center;">
+                <span class="badge">2 hours</span>
+                <span class="ph ph-dark" style="width:130px;height:11px;flex-shrink:0;"></span>
+            </div>
+            <span><img src="arrow.png" width="10px"></span>
+        </div>
+        <span class="ph ph-mid" style="width:100%;height:7px;display:block;"></span>
+        <span class="ph ph-light" style="width:90%;height:7px;display:block;"></span>
+        <span class="ph ph-light" style="width:80%;height:7px;display:block;"></span>
+        <div style="border-top:1px dashed var(--stroke-light);padding-top:10px;">
+          <span class="ph ph-mid" style="width:90px;height:8px;display:block;margin-bottom:7px;"></span>
+          <span class="ph ph-light" style="width:100%;height:6px;display:block;margin-bottom:4px;"></span>
+          <span class="ph ph-light" style="width:85%;height:6px;display:block;margin-bottom:4px;"></span>
+          <span class="ph ph-light" style="width:70%;height:6px;display:block;"></span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:4px;">
+          <button class="btn-secondary" style="font-size:9px;padding:5px 12px;">Request Info →</button>
+          <span style="font-size:9px;color:var(--ink-light);font-family:var(--font-courier);">📖 Related book</span>
+        </div>
+      </div>
+      <!-- 4h card -->
+      <div class="card" style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display: flex;flex-direction: row;justify-content: space-between;">
+            <div style="display: flex;flex-direction: row;gap: 10px;align-items: center;">
+                <span class="badge">4 hours</span>
+                <span class="ph ph-dark" style="width:130px;height:11px;flex-shrink:0;"></span>
+            </div>
+            <span><img src="arrow.png" width="10px"></span>
+        </div>
+        <span class="ph ph-mid" style="width:100%;height:7px;display:block;"></span>
+        <span class="ph ph-light" style="width:88%;height:7px;display:block;"></span>
+        <span class="ph ph-light" style="width:75%;height:7px;display:block;"></span>
+        <div style="border-top:1px dashed var(--stroke-light);padding-top:10px;">
+          <span class="ph ph-mid" style="width:90px;height:8px;display:block;margin-bottom:7px;"></span>
+          <span class="ph ph-light" style="width:100%;height:6px;display:block;margin-bottom:4px;"></span>
+          <span class="ph ph-light" style="width:90%;height:6px;display:block;margin-bottom:4px;"></span>
+          <span class="ph ph-light" style="width:65%;height:6px;display:block;"></span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:4px;">
+          <button class="btn-secondary" style="font-size:9px;padding:5px 12px;">Request Info →</button>
+          <span style="font-size:9px;color:var(--ink-light);font-family:var(--font-courier);">📖 Related book</span>
+        </div>
+      </div>
+    </div>
+    <p class="annotation">Short course cards — duration badge · course title · description · learning outcomes · request CTA · linked book</p>
+
+    <!-- Workshops / Academic placeholders -->
+    <div style="background:var(--fill-ghost);border:1px dashed var(--stroke-light);padding:12px 16px;margin-top:6px;text-align:center;">
+      <span style="font-size:9px;font-family:var(--font-courier);font-style:italic;color:var(--ink-faint);">
+        [ Workshops tab → Full day (8h) &amp; 2-day (16h) cards render here ]
+      </span>
+    </div>
+    <div style="background:var(--fill-ghost);border:1px dashed var(--stroke-light);border-top:none;padding:12px 16px;margin-bottom:4px;text-align:center;">
+      <span style="font-size:9px;font-family:var(--font-courier);font-style:italic;color:var(--ink-faint);">
+        [ Academic Courses tab → 1-credit &amp; 3-credit cards render here ]
+      </span>
+    </div>
+
+
+    <!-- ── INDIVIDUAL COURSE PAGE ── -->
+    <div class="section-divider">
+      <span class="s-label">Section B</span>
+      <span class="s-title">Individual Course Page Layout</span>
+    </div>
+
+    <div class="grid-2-3">
+      <!-- Left: course detail -->
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div class="card">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+            <span class="badge">4 hours</span>
+            <span class="ph ph-dark" style="width:180px;height:13px;"></span>
+          </div>
+          <span class="ph ph-mid" style="width:100%;height:7px;display:block;margin-bottom:5px;"></span>
+          <span class="ph ph-mid" style="width:92%;height:7px;display:block;margin-bottom:5px;"></span>
+          <span class="ph ph-light" style="width:80%;height:7px;display:block;margin-bottom:5px;"></span>
+          <span class="ph ph-light" style="width:85%;height:7px;display:block;"></span>
+        </div>
+
+        <!-- Learning outcomes -->
+        <div class="card">
+          <span class="ph ph-dark" style="width:110px;height:9px;display:block;margin-bottom:10px;"></span>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div style="display:flex;gap:8px;align-items:center;">
+              <span class="ph ph-mid" style="width:10px;height:10px;flex-shrink:0;"></span>
+              <span class="ph ph-light" style="width:220px;height:7px;"></span>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center;">
+              <span class="ph ph-mid" style="width:10px;height:10px;flex-shrink:0;"></span>
+              <span class="ph ph-light" style="width:190px;height:7px;"></span>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center;">
+              <span class="ph ph-mid" style="width:10px;height:10px;flex-shrink:0;"></span>
+              <span class="ph ph-light" style="width:240px;height:7px;"></span>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center;">
+              <span class="ph ph-mid" style="width:10px;height:10px;flex-shrink:0;"></span>
+              <span class="ph ph-light" style="width:170px;height:7px;"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Associated book -->
+        <div class="card" style="display:flex;align-items:center;gap:12px;">
+          <div class="img-placeholder" style="width:36px;height:48px;flex-shrink:0;"><span style="display:none;"></span></div>
+          <div style="flex:1;">
+            <span style="font-size:9px;color:var(--ink-light);font-family:var(--font-courier);">Associated book</span>
+            <span class="ph ph-mid" style="width:140px;height:8px;display:block;margin:5px 0 4px;"></span>
+            <span class="ph ph-light" style="width:80px;height:7px;display:block;"></span>
+          </div>
+          <button class="btn-secondary" style="font-size:9px;padding:5px 10px;white-space:nowrap;">View →</button>
+        </div>
+
+      </div>
+
+      <!-- Right: enroll sidebar -->
+      <div class="sidebar-card">
+        <span class="ph ph-mid" style="width:80%;height:9px;display:block;"></span>
+        <div>
+          <span class="ph ph-dark" style="width:70px;height:18px;display:block;margin-bottom:4px;"></span>
+          <span style="font-size:9px;color:var(--ink-light);font-family:var(--font-courier);">per participant</span>
+        </div>
+        <button class="btn-primary" style="width:100%;font-size:10px;padding:10px;">Request Enrollment</button>
+        <div style="border-top:1px solid var(--stroke-light);padding-top:10px;">
+          <span class="ph ph-mid" style="width:70px;height:8px;display:block;margin-bottom:7px;"></span>
+          <span class="ph ph-light" style="width:100%;height:7px;display:block;margin-bottom:4px;"></span>
+          <span class="ph ph-light" style="width:90%;height:7px;display:block;margin-bottom:4px;"></span>
+          <span class="ph ph-light" style="width:80%;height:7px;display:block;"></span>
+        </div>
+        <div style="border-top:1px solid var(--stroke-light);padding-top:10px;">
+          <span style="font-size:9px;color:var(--ink-light);font-family:var(--font-courier);display:block;margin-bottom:6px;">Related mentorship</span>
+          <div class="card" style="padding:8px 10px;display:flex;align-items:center;gap:8px;">
+            <div class="crosslink-icon"></div>
+            <div>
+              <span class="ph ph-mid" style="width:90px;height:7px;display:block;margin-bottom:4px;"></span>
+              <span class="ph ph-light" style="width:60px;height:6px;display:block;"></span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <span style="font-size:9px;color:var(--ink-light);font-family:var(--font-courier);display:block;margin-bottom:6px;">Also available</span>
+          <div class="card" style="padding:8px 10px;display:flex;align-items:center;gap:8px;">
+            <div class="img-placeholder" style="width:24px;height:32px;flex-shrink:0;"><span style="display:none;"></span></div>
+            <div>
+              <span class="ph ph-mid" style="width:80px;height:7px;display:block;margin-bottom:4px;"></span>
+              <span class="ph ph-light" style="width:60px;height:6px;display:block;"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="annotation">Two-column course detail — left: description + outcomes + linked book · right: price/enroll sidebar + cross-links to mentorship &amp; book</p>
+
+
+    <!-- ── CROSS-LINK STRIP ── -->
+    <div class="section-divider">
+      <span class="s-label">Section C</span>
+      <span class="s-title">Content Cross-Linking — Also Explore</span>
+    </div>
+
+  </div><!-- end page-content -->
+
+  <div class="crosslink-strip">
+    <span style="font-size:10px;font-weight:700;font-family:var(--font-courier);color:var(--ink-mid);">Also explore</span>
+    <div class="crosslink-grid">
+      <div class="crosslink-item">
+        <div class="crosslink-icon"></div>
+        <div>
+          <span class="ph ph-mid" style="width:90px;height:8px;display:block;margin-bottom:4px;"></span>
+          <span style="font-size:9px;color:var(--ink-light);font-family:var(--font-courier);">→ Related Book</span>
+        </div>
+      </div>
+      <div class="crosslink-item">
+        <div class="crosslink-icon"></div>
+        <div>
+          <span class="ph ph-mid" style="width:90px;height:8px;display:block;margin-bottom:4px;"></span>
+          <span style="font-size:9px;color:var(--ink-light);font-family:var(--font-courier);">→ Mentorship Package</span>
+        </div>
+      </div>
+      <div class="crosslink-item">
+        <div class="crosslink-icon"></div>
+        <div>
+          <span class="ph ph-mid" style="width:90px;height:8px;display:block;margin-bottom:4px;"></span>
+          <span style="font-size:9px;color:var(--ink-light);font-family:var(--font-courier);">→ More Courses</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-content" style="padding-top:4px;">
+    <p class="annotation">Cross-linking strip (repeats on all section pages) — interconnects Books ↔ Courses ↔ Mentorship as per content strategy</p>
+  </div>
+
+    <!-- Footer -->
+    <div class="legend">
+        <div class="legend-grid">
+            <div class="legend-item">
+                <span><strong>Address:</strong> Budapest, Népfürdő u. 22-B, 15 em, 1138</span>
+            </div>
+            <div class="legend-item">
+                <span></span>
+            </div>
+            <div class="legend-item">
+                <span></span>
+            </div>
+
+            <div class="legend-item">
+                <span><strong>Email:</strong> info@tickerbell.biz</span>
+            </div>
+            <div class="legend-item">
+                <span></span>
+            </div>
+            <div class="legend-item">
+                <span></span><span><img src="fb.png" alt="Facebook" width="13px"></span><span><img src="in.png" alt="LinkedIn" width="13px"></span><span><img src="x.png" alt="X" width="13px"></span>
+            </div>
+
+            <div class="legend-item">
+                <span><strong>Phone:</strong> 06 20 505 1054</span>
+            </div>
+            <div class="legend-item">
+                <span></span>
+            </div>
+            <div class="legend-item">
+                <span></span>
+            </div>
+        </div>
+        <div style="margin-top:14px;padding-top:10px;border-top:1px dashed var(--stroke-light);text-align: center;">
+            <span style="font-size:9px;font-family:var(--font-courier);font-style:italic;color:var(--ink-light);">
+                Privecy Policy - Terms & Conditions
+            </span>
+        </div>
+    </div>
+
+  <!-- Page break -->
+  <div class="page-break"><span>— end of courses section —</span></div>
+
+
+  <!-- ══════════════════════════════════════════
+       LEGEND
+  ══════════════════════════════════════════ -->
+  
+  
+
+</div><!-- end sheet -->
+
+</body>
+</html>
