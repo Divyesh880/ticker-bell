@@ -421,6 +421,8 @@
     border-top: 1px solid var(--stroke-light);
     padding: 20px 28px;
     background: var(--paper-dark);
+    display: flex;
+    justify-content: space-between;
   }
   .legend-title {
     font-size: 10px;
@@ -435,7 +437,7 @@
     gap: 10px;
   }
   .legend-title::after { content: ''; flex:1; height:1px; background: var(--stroke-light); }
-  .legend-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 24px; }
+  .legend-grid { display: flex; flex-direction: column; gap: 5px 24px; }
   .legend-item { display: flex; align-items: center; gap: 10px; }
   .legend-swatch {
     width: 22px; height: 14px; flex-shrink: 0;
@@ -533,20 +535,26 @@
         <div class="nav-link">Books</div>
         <div class="nav-link">Mentorship</div>
         <div class="nav-link">Courses</div>
-        <div class="nav-link">Press</div>
-        <div class="nav-link">About</div>
+        <div class="nav-link">About v</div>
+        <div class="nav-link">Contact</div>
       </div>
-      <button class="nav-cta">Contact</button>
+      <button class="nav-cta">Login</button>
+      <button class="nav-cta">Sign up</button>
     </div>
 
     <!-- ── HERO ── -->
 
-    
+     <div style="height: 200px; background: var(--paper-dark);">
+        <div style="height: 200px;display: flex;align-content: center;align-items: center;justify-content: center;">
+            <span style="font-size:9px;font-family:var(--font-courier);font-style:italic;color:var(--ink-light);">
+                Introduction and animated images
+            </span>
+        </div>
+    </div>
 
     <!-- ── RESEARCH HIGHLIGHTS ── -->
-    <div class="section-divider">
-      <span class="s-label">Section 2</span>
-      <span class="s-title">Research Highlights</span>
+    <div style="text-align: center; padding: 20px;">
+      <span>Research Highlights</span>
     </div>
 
     <div class="grid-3">
@@ -573,13 +581,17 @@
         <button class="btn-secondary" style="font-size:9px;padding:5px 12px;">Read more →</button>
       </div>
     </div>
-    <p class="annotation">Research area cards (×3) — informative + authoritative, no commercial elements</p>
+    <!-- <p class="annotation">Research area cards (×3) — informative + authoritative, no commercial elements</p> -->
 
 
     <!-- ── FEATURED BOOKS ── -->
-    <div class="section-divider">
+    <!-- <div class="section-divider">
       <span class="s-label">Section 3</span>
       <span class="s-title">Featured Books</span>
+    </div> -->
+
+    <div style="text-align: center; padding: 20px;">
+      <span>Featured Books</span>
     </div>
 
     <div class="grid-4">
@@ -613,9 +625,13 @@
 
 
     <!-- ── MENTORSHIP + COURSES OVERVIEW ── -->
-    <div class="section-divider">
+    <!-- <div class="section-divider">
       <span class="s-label">Section 4</span>
       <span class="s-title">Mentorship &amp; Courses Overview</span>
+    </div> -->
+
+    <div style="text-align: center; padding: 20px;">
+      <span>Mentorship &amp; Courses Overview</span>
     </div>
 
     <div class="grid-2">
@@ -636,13 +652,17 @@
         <button class="btn-secondary" style="font-size:10px;">View Courses →</button>
       </div>
     </div>
-    <p class="annotation">Two-column overview — Mentorship (left) / Courses (right) — both high-visibility with direct CTAs</p>
+    <p class="annotation">Overview — Mentorship (left) / Courses (right) — both high-visibility with direct CTAs</p>
 
 
     <!-- ── LINKEDIN FEED ── -->
-    <div class="section-divider">
+    <!-- <div class="section-divider">
       <span class="s-label">Section 5</span>
-      <span class="s-title">Latest Updates (LinkedIn Integration)</span>
+      <span class="s-title">Latest Updates</span>
+    </div> -->
+
+    <div style="text-align: center; padding: 20px;">
+      <span>Latest Updates</span>
     </div>
 
     <div class="grid-3">
@@ -684,49 +704,69 @@
         <span class="ph ph-faint" style="width:75%;height:6px;display:block;"></span>
       </div>
     </div>
-    <p class="annotation">LinkedIn post cards (×3) — auto-pulled, dashed border = dynamic/embedded content, no manual blog needed</p>
+    <p class="annotation">LinkedIn post cards — auto-pulled, embedded content</p>
 
   </div><!-- end page-content -->
 
   <!-- Footer -->
-  <!-- Footer -->
     <div class="legend">
+
         <div class="legend-grid">
             <div class="legend-item">
-                <span><strong>Address:</strong> Budapest, Népfürdő u. 22-B, 15 em, 1138</span>
+                <span><strong>Ticker Bell</strong></span>
             </div>
             <div class="legend-item">
-                <span></span>
+                <span>Népfürdő u. 22-B, 15 em, <br>Budapest 1138 <br>Hungary</span>
             </div>
             <div class="legend-item">
-                <span></span>
-            </div>
-
-            <div class="legend-item">
-                <span><strong>Email:</strong> info@tickerbell.biz</span>
+                <span>info@tickerbell.biz</span>
             </div>
             <div class="legend-item">
-                <span></span>
-            </div>
-            <div class="legend-item">
-                <span></span><span><img src="fb.png" alt="Facebook" width="13px"></span><span><img src="in.png" alt="LinkedIn" width="13px"></span><span><img src="x.png" alt="X" width="13px"></span>
-            </div>
-
-            <div class="legend-item">
-                <span><strong>Phone:</strong> 06 20 505 1054</span>
-            </div>
-            <div class="legend-item">
-                <span></span>
-            </div>
-            <div class="legend-item">
-                <span></span>
+                <span>06 20 505 1054</span>
             </div>
         </div>
-        <div style="margin-top:14px;padding-top:10px;border-top:1px dashed var(--stroke-light);text-align: center;">
+
+        <div>
+            <div class="legend-item">
+                <span><strong>Quick Links</strong></span>
+            </div>
+            <div style="display: flex;gap: 30px;padding-top: 5px;">
+                <div class="legend-grid">
+                    <div class="legend-item"><span>Research</span></div>
+                    <div class="legend-item"><span>Books</span></div>
+                    <div class="legend-item"><span>Mentorship</span></div>
+                </div>
+
+                <div class="legend-grid">
+                    <div class="legend-item"><span>Courses</span></div>
+                    <div class="legend-item"><span>About</span></div>
+                    <div class="legend-item"><span>Press</span></div>
+                </div>
+
+                <div class="legend-grid">
+                    <div class="legend-item"><span>Contact</span></div>
+                    <div class="legend-item"><span>Privacy Policy</span></div>
+                    <div class="legend-item"><span>Terms & Conditions</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="legend-grid">
+            <div class="legend-item">
+                <span><strong>Social Media</strong></span>
+            </div>
+            <div class="legend-item">
+                <span><img src="fb.png" alt="Facebook" width="13px"></span>
+                <span><img src="in.png" alt="LinkedIn" width="13px"></span>
+                <span><img src="x.png" alt="X" width="13px"></span>
+            </div>
+        </div>
+
+        <!-- <div style="margin-top:14px;padding-top:10px;border-top:1px dashed var(--stroke-light);text-align: center;">
             <span style="font-size:9px;font-family:var(--font-courier);font-style:italic;color:var(--ink-light);">
                 Privacy Policy - Terms & Conditions
             </span>
-        </div>
+        </div> -->
     </div>
 
   <!-- Page break -->
@@ -754,7 +794,7 @@
     <div class="navbar">
       <div class="nav-brand">
         <div class="nav-logo-box"><span>TB</span></div>
-        <div class="nav-brand-name">Ticker Bell Kft.</div>
+        <div class="nav-brand-name">Ticker Bell</div>
       </div>
       <div class="nav-links">
         <div class="nav-link">Home</div>
@@ -762,10 +802,11 @@
         <div class="nav-link">Books</div>
         <div class="nav-link">Mentorship</div>
         <div class="nav-link active">Courses</div>
-        <div class="nav-link">Press</div>
-        <div class="nav-link">About</div>
+        <div class="nav-link">About v</div>
+        <div class="nav-link">Contact</div>
       </div>
-      <button class="nav-cta">Contact</button>
+      <button class="nav-cta">Login</button>
+      <button class="nav-cta">Sign up</button>
     </div>
 
     <!-- Page hero / breadcrumb -->
@@ -776,9 +817,13 @@
     </div> -->
 
     <!-- ── COURSES OVERVIEW TEXT ── -->
-    <div class="section-divider">
+    <!-- <div class="section-divider">
       <span class="s-label">Overview</span>
       <span class="s-title">Teaching Approach Introduction</span>
+    </div> -->
+
+    <div style="text-align: center; padding: 20px;">
+      <span>Teaching Approach Introduction</span>
     </div>
 
     <div style="padding:4px 0 4px;">
@@ -790,9 +835,13 @@
 
 
     <!-- ── COURSE CATEGORIES ── -->
-    <div class="section-divider">
+    <!-- <div class="section-divider">
       <span class="s-label">Section A</span>
       <span class="s-title">Course Categories — Filter Tabs</span>
+    </div> -->
+
+    <div style="text-align: center; padding: 20px;">
+      <span>Course Categories — Filter Tabs</span>
     </div>
 
     <div class="tab-bar">
@@ -804,9 +853,13 @@
 
 
     <!-- ── SHORT COURSE CARDS ── -->
-    <div class="section-divider" style="margin-top:14px;">
+    <!-- <div class="section-divider" style="margin-top:14px;">
       <span class="s-label">Short Courses</span>
       <span class="s-title">2-hour &amp; 4-hour Courses</span>
+    </div> -->
+
+    <div style="text-align: center; padding: 20px;">
+      <span>Short Courses</span>
     </div>
 
     <div class="grid-2">
@@ -832,6 +885,11 @@
           <button class="btn-secondary" style="font-size:9px;padding:5px 12px;">Request Info →</button>
           <span style="font-size:9px;color:var(--ink-light);font-family:var(--font-courier);">📖 Related book</span>
         </div>
+        <div style="display: flex;gap: 10px;">
+            <div class="img-placeholder" style="height:90px;width:100%;"><span>Book 1</span></div>
+            <div class="img-placeholder" style="height:90px;width:100%;"><span>Book 2</span></div>
+            <div class="img-placeholder" style="height:90px;width:100%;"><span>Book 3</span></div>
+        </div>
       </div>
       <!-- 4h card -->
       <div class="card" style="display:flex;flex-direction:column;gap:10px;">
@@ -855,6 +913,11 @@
           <button class="btn-secondary" style="font-size:9px;padding:5px 12px;">Request Info →</button>
           <span style="font-size:9px;color:var(--ink-light);font-family:var(--font-courier);">📖 Related book</span>
         </div>
+        <div style="display: flex;gap: 10px;">
+            <div class="img-placeholder" style="height:90px;width:100%;"><span>Book 1</span></div>
+            <div class="img-placeholder" style="height:90px;width:100%;"><span>Book 2</span></div>
+            <div class="img-placeholder" style="height:90px;width:100%;"><span>Book 3</span></div>
+        </div>
       </div>
     </div>
     <p class="annotation">Short course cards — duration badge · course title · description · learning outcomes · request CTA · linked book</p>
@@ -873,13 +936,12 @@
 
 
     <!-- ── INDIVIDUAL COURSE PAGE ── -->
-    <div class="section-divider">
+    <!-- <div class="section-divider">
       <span class="s-label">Section B</span>
       <span class="s-title">Individual Course Page Layout</span>
     </div>
 
     <div class="grid-2-3">
-      <!-- Left: course detail -->
       <div style="display:flex;flex-direction:column;gap:14px;">
         <div class="card">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
@@ -892,7 +954,6 @@
           <span class="ph ph-light" style="width:85%;height:7px;display:block;"></span>
         </div>
 
-        <!-- Learning outcomes -->
         <div class="card">
           <span class="ph ph-dark" style="width:110px;height:9px;display:block;margin-bottom:10px;"></span>
           <div style="display:flex;flex-direction:column;gap:6px;">
@@ -915,7 +976,6 @@
           </div>
         </div>
 
-        <!-- Associated book -->
         <div class="card" style="display:flex;align-items:center;gap:12px;">
           <div class="img-placeholder" style="width:36px;height:48px;flex-shrink:0;"><span style="display:none;"></span></div>
           <div style="flex:1;">
@@ -928,7 +988,6 @@
 
       </div>
 
-      <!-- Right: enroll sidebar -->
       <div class="sidebar-card">
         <span class="ph ph-mid" style="width:80%;height:9px;display:block;"></span>
         <div>
@@ -964,18 +1023,18 @@
         </div>
       </div>
     </div>
-    <p class="annotation">Two-column course detail — left: description + outcomes + linked book · right: price/enroll sidebar + cross-links to mentorship &amp; book</p>
+    <p class="annotation">Two-column course detail — left: description + outcomes + linked book · right: price/enroll sidebar + cross-links to mentorship &amp; book</p> -->
 
 
     <!-- ── CROSS-LINK STRIP ── -->
-    <div class="section-divider">
+    <!-- <div class="section-divider">
       <span class="s-label">Section C</span>
       <span class="s-title">Content Cross-Linking — Also Explore</span>
-    </div>
+    </div> -->
 
   </div><!-- end page-content -->
 
-  <div class="crosslink-strip">
+  <!-- <div class="crosslink-strip">
     <span style="font-size:10px;font-weight:700;font-family:var(--font-courier);color:var(--ink-mid);">Also explore</span>
     <div class="crosslink-grid">
       <div class="crosslink-item">
@@ -1003,46 +1062,67 @@
   </div>
   <div class="page-content" style="padding-top:4px;">
     <p class="annotation">Cross-linking strip (repeats on all section pages) — interconnects Books ↔ Courses ↔ Mentorship as per content strategy</p>
-  </div>
+  </div> -->
 
     <!-- Footer -->
     <div class="legend">
+
         <div class="legend-grid">
             <div class="legend-item">
-                <span><strong>Address:</strong> Budapest, Népfürdő u. 22-B, 15 em, 1138</span>
+                <span><strong>Ticker Bell</strong></span>
             </div>
             <div class="legend-item">
-                <span></span>
+                <span>Népfürdő u. 22-B, 15 em, <br>Budapest 1138 <br>Hungary</span>
             </div>
             <div class="legend-item">
-                <span></span>
-            </div>
-
-            <div class="legend-item">
-                <span><strong>Email:</strong> info@tickerbell.biz</span>
+                <span>info@tickerbell.biz</span>
             </div>
             <div class="legend-item">
-                <span></span>
-            </div>
-            <div class="legend-item">
-                <span></span><span><img src="fb.png" alt="Facebook" width="13px"></span><span><img src="in.png" alt="LinkedIn" width="13px"></span><span><img src="x.png" alt="X" width="13px"></span>
-            </div>
-
-            <div class="legend-item">
-                <span><strong>Phone:</strong> 06 20 505 1054</span>
-            </div>
-            <div class="legend-item">
-                <span></span>
-            </div>
-            <div class="legend-item">
-                <span></span>
+                <span>06 20 505 1054</span>
             </div>
         </div>
-        <div style="margin-top:14px;padding-top:10px;border-top:1px dashed var(--stroke-light);text-align: center;">
+
+        <div>
+            <div class="legend-item">
+                <span><strong>Quick Links</strong></span>
+            </div>
+            <div style="display: flex;gap: 30px;padding-top: 5px;">
+                <div class="legend-grid">
+                    <div class="legend-item"><span>Research</span></div>
+                    <div class="legend-item"><span>Books</span></div>
+                    <div class="legend-item"><span>Mentorship</span></div>
+                </div>
+
+                <div class="legend-grid">
+                    <div class="legend-item"><span>Courses</span></div>
+                    <div class="legend-item"><span>About</span></div>
+                    <div class="legend-item"><span>Press</span></div>
+                </div>
+
+                <div class="legend-grid">
+                    <div class="legend-item"><span>Contact</span></div>
+                    <div class="legend-item"><span>Privacy Policy</span></div>
+                    <div class="legend-item"><span>Terms & Conditions</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="legend-grid">
+            <div class="legend-item">
+                <span><strong>Social Media</strong></span>
+            </div>
+            <div class="legend-item">
+                <span><img src="fb.png" alt="Facebook" width="13px"></span>
+                <span><img src="in.png" alt="LinkedIn" width="13px"></span>
+                <span><img src="x.png" alt="X" width="13px"></span>
+            </div>
+        </div>
+
+        <!-- <div style="margin-top:14px;padding-top:10px;border-top:1px dashed var(--stroke-light);text-align: center;">
             <span style="font-size:9px;font-family:var(--font-courier);font-style:italic;color:var(--ink-light);">
                 Privacy Policy - Terms & Conditions
             </span>
-        </div>
+        </div> -->
     </div>
 
   <!-- Page break -->
